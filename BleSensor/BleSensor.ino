@@ -18,6 +18,8 @@ long dhtMillis = 0;
 
 #define POT_PIN A0
 
+#define DELIMETER '#'
+
 DHT dht(DHTPIN, DHTTYPE);
 
 bool isOpen = false;
@@ -61,7 +63,7 @@ void loop()
 
     char readChar = btSerial.read();
 
-    if (readChar != '#')
+    if (readChar != DELIMETER)
       command += readChar;
     else
       doCommand();
